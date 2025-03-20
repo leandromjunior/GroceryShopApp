@@ -35,11 +35,15 @@ struct WelcomeView: View {
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 20)
                     
-                // Este metodo está setado no arquivo RoundButton
-                RoundButton(title: "Get Started") {
-                    
+                // Responsável por criar um link entre o botão e a view SignInView
+                NavigationLink {
+                    SignInView()
+                } label: {
+                    // Este metodo está setado no arquivo RoundButton
+                    RoundButton(title: "Get Started") {
+                        
+                    }
                 }
-
                 
                 Spacer()
                     .frame(height: 80) // Responsavel pelo espaço entre a VStack e o limite inferior da tela
@@ -54,5 +58,9 @@ struct WelcomeView: View {
 }
 
 #Preview {
-    WelcomeView()
+    
+    NavigationView { //Responsável por fazer o redirecionamento entre as telas ao clicar no botão Get Started
+        WelcomeView()
+    }
+    
 }
