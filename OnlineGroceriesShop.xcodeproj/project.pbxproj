@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F284CA112D9504520057CEE1 /* CountryPickerUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F284CA102D9504520057CEE1 /* CountryPickerUI.swift */; };
+		F284CA132D95056E0057CEE1 /* CountryPicker in Frameworks */ = {isa = PBXBuildFile; productRef = F284CA122D95056E0057CEE1 /* CountryPicker */; };
 		F29FB8A62D86A76B006E4AEA /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29FB8A52D86A76B006E4AEA /* RoundButton.swift */; };
 		F29FB8A82D86A8DE006E4AEA /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29FB8A72D86A8DE006E4AEA /* SignInView.swift */; };
 		F2DC2E8B2D7E6F7200A5F7A0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2DC2E7F2D7E6F7200A5F7A0 /* Preview Assets.xcassets */; };
@@ -38,6 +40,7 @@
 		F2065D092D70119500F95D43 /* OnlineGroceriesShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlineGroceriesShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2065D192D70119700F95D43 /* OnlineGroceriesShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlineGroceriesShopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2065D232D70119700F95D43 /* OnlineGroceriesShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlineGroceriesShopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F284CA102D9504520057CEE1 /* CountryPickerUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerUI.swift; sourceTree = "<group>"; };
 		F29FB8A52D86A76B006E4AEA /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		F29FB8A72D86A8DE006E4AEA /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		F2DC2E7F2D7E6F7200A5F7A0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -66,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F284CA132D95056E0057CEE1 /* CountryPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +130,7 @@
 			children = (
 				F2F941D32D7EA5A3004BDD99 /* UIExtension.swift */,
 				F29FB8A52D86A76B006E4AEA /* RoundButton.swift */,
+				F284CA102D9504520057CEE1 /* CountryPickerUI.swift */,
 			);
 			path = UICommon;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 			);
 			name = OnlineGroceriesShop;
 			packageProductDependencies = (
+				F284CA122D95056E0057CEE1 /* CountryPicker */,
 			);
 			productName = OnlineGroceriesShop;
 			productReference = F2065D092D70119500F95D43 /* OnlineGroceriesShop.app */;
@@ -269,6 +275,9 @@
 			);
 			mainGroup = F2065D002D70119500F95D43;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F284CA0F2D95040A0057CEE1 /* XCRemoteSwiftPackageReference "CountryPicker" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F2065D0A2D70119500F95D43 /* Products */;
 			projectDirPath = "";
@@ -313,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F284CA112D9504520057CEE1 /* CountryPickerUI.swift in Sources */,
 				F29FB8A62D86A76B006E4AEA /* RoundButton.swift in Sources */,
 				F2DC2E912D7E6F7200A5F7A0 /* OnlineGroceriesShopApp.swift in Sources */,
 				F2F941D42D7EA5A3004BDD99 /* UIExtension.swift in Sources */,
@@ -656,6 +666,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F284CA0F2D95040A0057CEE1 /* XCRemoteSwiftPackageReference "CountryPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mobven/CountryPicker.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F284CA122D95056E0057CEE1 /* CountryPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F284CA0F2D95040A0057CEE1 /* XCRemoteSwiftPackageReference "CountryPicker" */;
+			productName = CountryPicker;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F2065D012D70119500F95D43 /* Project object */;
 }
