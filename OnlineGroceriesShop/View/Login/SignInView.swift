@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import CountryPicker
 
 struct SignInView: View {
     
     @State var txtMobile: String = ""
+    @State var isShowingPicker: Bool = false
+    @State var countryObj: Country?
     
     var body: some View {
         ZStack{
@@ -40,12 +43,25 @@ struct SignInView: View {
                     HStack{
                         Button {
                             
-                        } label: {
-                            Image("")
+                            isShowingPicker = true
                             
-                            Text("+55")
-                                .font(.system(size: 26, weight: .medium))
-                                .foregroundColor(.primaryText)
+                        } label: {
+            //                Image("")
+                            
+                            if let countryObj = countryObj {
+                                
+                                // Code to show the country flag
+                                Text("\(countryObj.isoCode.getFlag())")
+                                    .font(.system(size: 30, weight: .medium))
+                                    .foregroundColor(.primaryText)
+                                
+                                // Trecho para exibir o código do país ao selecioná-lo
+                                Text("+\(countryObj.phoneCode)")
+                                    .font(.system(size: 18, weight: .medium))
+                                    .foregroundColor(.primaryText)
+                                
+                            }
+                            
                         }
                         
                         TextField("Enter Mobile", text: $txtMobile)
@@ -104,6 +120,12 @@ struct SignInView: View {
             .padding(.top, .topInsets + .screenWidth)
             
         }
+        .onAppear{
+            self.countryObj = Country(phoneCode: "55", isoCode: "BR")
+        }
+        .sheet(isPresented: $isShowingPicker, content: {
+            CountryPickerUI(country: $countryObj)
+        })
         .navigationTitle("")
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
