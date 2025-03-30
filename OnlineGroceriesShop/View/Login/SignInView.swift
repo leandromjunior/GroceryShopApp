@@ -50,7 +50,7 @@ struct SignInView: View {
                             
                             if let countryObj = countryObj {
                                 
-                                // Code to show the country flag
+                                // Exibe a bandeira do pais selecionado
                                 Text("\(countryObj.isoCode.getFlag())")
                                     .font(.system(size: 30, weight: .medium))
                                     .foregroundColor(.primaryText)
@@ -87,11 +87,13 @@ struct SignInView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 22, height: 25)
+                        
                         Text("Continue with Google")
                             .font(.system(size: 18, weight: .semibold))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
                     }
+                    //dimensões e características/formato do botão
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 60, maxHeight: 60)
                     .background(Color(hex: "5383EC"))
                     .cornerRadius(20)
@@ -105,11 +107,13 @@ struct SignInView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 22, height: 25)
+                        
                         Text("Continue with Facebook")
                             .font(.system(size: 18, weight: .semibold))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
                     }
+                    //dimensões e características/formato do botão
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 60, maxHeight: 60)
                     .background(Color(hex: "4A66AC"))
                     .cornerRadius(20)
@@ -120,6 +124,7 @@ struct SignInView: View {
             .padding(.top, .topInsets + .screenWidth)
             
         }
+        //Exibe o código e a bandeira de forma predefinida na tela
         .onAppear{
             self.countryObj = Country(phoneCode: "55", isoCode: "BR")
         }
