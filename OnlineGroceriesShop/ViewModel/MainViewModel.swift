@@ -12,6 +12,6 @@ class MainViewModel: ObservableObject {
     
     @Published var txtEmail: String = ""
     @Published var txtPassword: String = ""
-    @Published var isShownPassword: Bool = false
+    @Published var isShowPassword: Bool = true // O botão de exibição da senha (olho) só apareceu após eu setar esta variavel para true e no arquivo LineTextField, na struct LineSecureField fazer a verificação !isShowPassword
     
 }
