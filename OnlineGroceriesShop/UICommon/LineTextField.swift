@@ -12,7 +12,6 @@ struct LineTextField: View {
     @State var title: String = "Title"
     @State var placeholder: String = "Placeholder"
     @State var keyboardType: UIKeyboardType = .default
-    @State var isPassword: Bool = false
     
     var body: some View {
         VStack {
@@ -21,14 +20,10 @@ struct LineTextField: View {
                 .foregroundColor(.textTitle)
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
             
-            if (isPassword) {
-                SecureField(placeholder, text: $txt)
-            }
-            else {
-                TextField(placeholder, text: $txt)
-                    .keyboardType(keyboardType)
-            }
-
+            TextField(placeholder, text: $txt)
+                .keyboardType(keyboardType)
+                .disableAutocorrection(true)
+                .frame(height: 40)
             
             Divider()
         }
@@ -40,7 +35,7 @@ struct LineSecureField: View {
     @State var title: String = "Title"
     @State var placeholder: String = "Placeholder"
     @State var keyboardType: UIKeyboardType = .default
-    @Binding var isPassword: Bool
+    @Binding var isShowPassword: Bool
     
     var body: some View {
         VStack {
@@ -49,13 +44,16 @@ struct LineSecureField: View {
                 .foregroundColor(.textTitle)
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
             
-            if (!isPassword) {
+            if (isShowPassword) {
                 TextField(placeholder, text: $txt)
-                    .modifier(ShowButton(isShow: $isPassword))
+                    .disableAutocorrection(true)
+                    .modifier(ShowButton(isShow: $isShowPassword))
+                    .frame(height: 40)
             }
             else {
                 SecureField(placeholder, text: $txt)
-                    .modifier(ShowButton(isShow: $isPassword))
+                    .modifier(ShowButton(isShow: $isShowPassword))
+                    .frame(height: 40)
             }
             
             Divider()
@@ -63,8 +61,23 @@ struct LineSecureField: View {
     }
 }
 
+// O trecho abaixo (comentado) estava retornando o aviso "'@State' used inline will not work unless tagged with '@previewable'". Portanto, a comentei e inseri o trecho de código abaixo (descomentado) para que o aviso fosse resolvido
+
+//#Preview {
+//    @State var txt: String = ""
+//    LineTextField(txt: $txt)
+//        .padding(20)
+//}
+
 #Preview {
-    @State var txt: String = ""
-    LineTextField(txt: $txt)
-        .padding(20)
+    LineTextFieldPreview()
+}
+
+struct LineTextFieldPreview: View {
+    @State private var txt: String = ""
+
+    var body: some View {
+        LineTextField(txt: $txt)
+            .padding(20)
+    }
 }
