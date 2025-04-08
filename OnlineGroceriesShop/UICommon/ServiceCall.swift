@@ -6,13 +6,8 @@
 //
 
 import SwiftUI
+import UIKit
 
-struct ServiceCall: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    ServiceCall()
+struct ServiceCall {
+    
 }
