@@ -132,7 +132,7 @@ struct ShowButton: ViewModifier {
             Button {
                 isShow.toggle()
             } label: {
-                Image(systemName: isShow ? "eye.fill" : "eye.fill") //Tive que colocar a mesma condição em ambas as opções pois ao clicar no olho ele desaparecia (opção 2 anterior: eye.slash.fill)
+                Image(systemName: isShow ? "eye.slash" : "eye") //Se isShow tiver com seu valor padrão (true) o olho exibido será o da primeira condição, se o valor for alterado, através do .toggle(), a logo do olho exibido será a segunda.
                     .foregroundColor(.textTitle)
             }
 
