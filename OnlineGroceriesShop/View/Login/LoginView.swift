@@ -27,7 +27,7 @@ struct LoginView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 45)
-                    .padding(.bottom, .screenWidth * 0.12)
+                    .padding(.bottom, .screenWidth * 0.1)
                 
                 Text("Login")
                     .font(.system(size: 26, weight: .semibold))
@@ -44,7 +44,34 @@ struct LoginView: View {
                 LineTextField(txt: $loginVM.txtEmail, title: "Email", placeholder: "Enter your email", keyboardType: .emailAddress)
                     .padding(.bottom, .screenWidth * 0.06)
                 
-                LineSecureField(txt: $loginVM.txtPassword, title: "Password", placeholder: "Enter your password", isPassword: $loginVM.isShowPassword)
+                LineSecureField(txt: $loginVM.txtPassword, title: "Password", placeholder: "Enter your password", isShowPassword: $loginVM.showPassword)
+                    .padding(.bottom, .screenWidth * 0.02)
+                
+                Button {
+                    
+                } label: {
+                    Text("Forgot your password?")
+                        .font(.system(size: 14, weight: .medium))
+                        .foregroundColor(.primaryText)
+                        
+                }
+                .frame(minWidth:0, maxWidth: .infinity, alignment: .trailing)
+                .padding(.bottom, .screenWidth * 0.03)
+                
+                RoundButton(title: "Log In") {}
+                    .padding(.bottom, .screenWidth * 0.03)
+                
+                HStack {
+                    
+                    Text("Don't have an account?")
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(.primaryText)
+                    
+                    Text("Sign Up")
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(.primaryApp)
+                }
+                
                 
                 
                 Spacer()
