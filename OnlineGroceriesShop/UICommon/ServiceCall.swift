@@ -33,7 +33,45 @@ class ServiceCall {
                 i += 1
             }
             
-            // trecho seguinte
+            // Cria um URLRequest com a url fornecida em path e que se a requisição não for concluida em 20 segundos, será cancelada
+            var request = URLRequest(url: URL(string: path)!, timeoutInterval: 20)
+            request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            
+            // Confirma que é uma requisição do tipo POST
+            request.httpMethod = "POST"
+            // O corpo (httpBody) contém os parâmetros serializados que você construiu antes (com parameterData)
+            request.httpBody = parameterData as Data
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                
+                    // Tratando erro da requisição
+                if let error = error {
+                    DispatchQueue.main.async {
+                        failure(error)
+                    }
+                } else {
+                    
+                    // Tratando o sucesso da requisição
+                    if let data = data {
+                        do {
+                            let jsonDictionary = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
+                            
+                            DispatchQueue.main.async {
+                                withSuccess(jsonDictionary)
+                            }
+                            
+                            
+                        }
+                        catch {
+                            DispatchQueue.main.async {
+                                failure(error)
+                            }
+                        }
+                    }
+                }
+                
+            }
+                
         }
     }
     
